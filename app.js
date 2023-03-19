@@ -6,6 +6,7 @@ const app = express();
 
 app.use(cors());//haz uso de cors, permite evitar el error de uso cruzado.
 app.use(express.json())
+app.use(express.static('storage'))
 
 const port = process.env.PORT || 3000; //hace referencia al puerto que viene con la variable de entorno.
 

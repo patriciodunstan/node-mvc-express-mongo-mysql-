@@ -1,12 +1,14 @@
-const { tracksModel } = require("../models")
-const mongoose = require("mongoose");
+const fs = require('fs')
+const { storageModel } = require("../models")
+const PUBLIC_URL= process.env.PUBLIC_URL || null 
 /**
  * Obtener lista de la base de datos!
+
  * @param {*} req 
  * @param {*} res 
  */
 const getItems = async (req, res) => {
-    const data = await tracksModel.find({});   
+    const data = await storageModel.find({});   
    res.send({ data });
 };
 /**
@@ -22,9 +24,13 @@ const getItem = (req, res) => {};
  * @param {*} res 
  */
 const createItem = async (req, res) => {
-    const { body } = req
-    console.log(body)
-    const data = await tracksModel.create(body)
+    const { file } = req;
+    console.log(file)
+    const body = {
+        filename: file.filename,
+        url: `${PUBLIC_URL}/${file.filename}`,
+    }
+    const data = await storageModel.create(body);
     res.send({data})
 };
 
