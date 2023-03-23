@@ -7,12 +7,12 @@ const StorageScheme = new mongoose.Schema(
         },
         filename:{
             type:String,
-        },
+        }
     },
     {
-        timestamps:true,  //TODO createdAT, updateAT creo y actualiza fechas.
+        timestamps: true,  //TODO createdAT, updateAT creo y actualiza fechas.
         versionKey: false
     }
 );
 
-module.exports = mongoose.model("storage", StorageScheme);
+module.exports = mongoose.model('storage', StorageScheme);

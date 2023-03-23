@@ -12,7 +12,8 @@ const removeExtension = (filename) => {
 fs.readdirSync(PATH_ROUTES).filter((file) => {
     const name = removeExtension(file)//TODO index, tracks
     if(name !== 'index') {
-        router.use(`/${name}`, require(`./${file}`)); //TODO http://localhost:3000/api/tracks u otro router
+        console.log(`ruta on ${name}`)
+        router.use(`/${name}`,require(`./${file}`)); //TODO http://localhost:3000/api/tracks u otro router
     }
 })
 
